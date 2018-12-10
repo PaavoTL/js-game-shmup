@@ -19,4 +19,9 @@ export default class Rectangle {
             range.yPos > this.yPos + this.height ||
             range.yPos + range.height < this.yPos);
     }
+
+    show(ctx){
+        ctx.fillStyle = "green";
+        ctx.fillRect()
+    }
 }
