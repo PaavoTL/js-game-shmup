@@ -7,16 +7,16 @@ export default class Rectangle {
     }
 
     contains(point){
-        return (point.x >= this.xPos &&
-            point.x <= this.xPos + this.width &&
-            point.y >= this.yPos &&
-            point.y <= this.yPos + this.height);
+        return (point.xPos >= this.xPos &&
+            point.xPos <= this.xPos + this.width &&
+            point.yPos >= this.yPos &&
+            point.yPos <= this.yPos + this.height);
     }
 
     intersects(range){
-        return !(range.x > this.xPos + this.width ||
-            range.x + range.w < this.xPos ||
-            range.y > this.yPos + this.height ||
-            range.y + range.h < this.yPos);
+        return !(range.xPos > this.xPos + this.width ||
+            range.xPos + range.width < this.xPos ||
+            range.yPos > this.yPos + this.height ||
+            range.yPos + range.height < this.yPos);
     }
 }

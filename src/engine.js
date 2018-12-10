@@ -1,5 +1,6 @@
 import QuadTree from "./quadtree/quadtree";
 import Rectangle from "./quadtree/rectangle";
+import Point from "./quadtree/point";
 
 export default class Engine {
     constructor(){
@@ -22,18 +23,32 @@ export default class Engine {
 
         // debug setup
         this.debug = true;
+        console.log(this.qTree);
 
         // Start the loop
         window.requestAnimationFrame(this.loop.bind(this));
     }
 
     draw(){
-        if (debug){
-            this.qTree.draw(this.ctx)
+        this.ctx.fillStyle = "#303030";
+        this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height);
+
+        for(let obj of this.objects){
+            obj.draw();
+        }
+
+        if (this.debug){
+            this.qTree.show(this.ctx);
         }
     }
 
     loop(){
+        //Updates
+        for(let obj of this.objects){
+            obj.update();
+        }
+        //Draw
+        this.draw();
         window.requestAnimationFrame(this.loop.bind(this));
     }
 }
