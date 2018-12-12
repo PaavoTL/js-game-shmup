@@ -18,7 +18,7 @@ export default class GameObject {
 
     collisions(){
         if (this.boundary){
-            others = qTree.query(this.boundary).userdata;
+            let others = this.qTree.query(this.boundary).userdata;
         }
 
         for (let child of this.children){
@@ -36,6 +36,12 @@ export default class GameObject {
 
     show(ctx){
         ctx.fillStyle = "green"
-        ctx.fillRect(this.boundary.xPos,this.boundary.yPos)
+        if(this.boundary){
+            ctx.fillRect(this.boundary.xPos,this.boundary.yPos,this.boundary.width,this.boundary.height);
+        }
+        
+        for(let child of this.children){
+            child.show(ctx);
+        }
     }
 }
