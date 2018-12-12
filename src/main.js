@@ -7,3 +7,4 @@ let qTree = engine.qTree;
 
 let testObject = new GameObject(100,100,0);
 engine.addObject(testObject);
+testObject.boundary = new Rectangle(testObject.xPos,testObject.yPos,100,100);
