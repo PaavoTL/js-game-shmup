@@ -58,7 +58,7 @@ export default class QuadTree {
 
     query(range,found){
         if(!found){
-            let found = [];
+            found = [];
         }
 
         if(!range.intersects(this.boundary)){
